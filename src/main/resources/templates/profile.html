@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <!--css-->
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
 
 </head>
@@ -12,8 +11,7 @@
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Trường</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -37,26 +35,24 @@
 </header>
 <div class="section">
     <div class="container">
+
         <div class="card" style="width: 60rem; margin-top: 50px">
-            <img class="card-img-top" src="http://home.vnptnet.vn/media/vnpt/2018/01/05/VNPT.jpg" alt="Card image cap"
-                 style="width: 100px; height: 100px">
+            <img class="card-img-top" src="http://home.vnptnet.vn/media/vnpt/2018/01/05/VNPT.jpg" alt="Card image cap" style="width: 100px; height: 100px">
             <div class="card-body">
-                <form action="/hello" method="get">
-                    <h3 th:utext="#{ngongu.hello}" class="form-title"></h3>
-                    <div class="form-group">
-                        <label th:utext="#{ngongu.label}" ></label>
-                        <input type="text" name="name" id="" class="form-control" placeholder=""
-                               aria-describedby="hel    pId">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Gửi</button>
-                </form>
+                <h4 class="card-title">Thông tin</h4>
+                <ul>
+                    <li th:each="info : ${profile}">
+
+                        <span th:text="*{info.key}"></span> :  <span th:text="*{info.value}"></span>
+
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
 
 </div>
 
-<!--js-->
 <script th:src="@{/js/jquery-3.2.1.slim.min.js}"></script>
 
 <script th:src="@{/js/popper.min.js}"></script>

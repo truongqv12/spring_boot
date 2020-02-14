@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @PropertySource("/applications.properties")
 
@@ -26,5 +29,21 @@ public class WebController {
     ) {
         model.addAttribute("name", name);
         return "hello";
+    }
+
+    @GetMapping("/profile")
+    public String profile(Model model) {
+        // Tạo Thông tin
+        List<Info> profile = new ArrayList<>();
+        profile.add(new Info("fullname", "Trần Trọng Trường"));
+        profile.add(new Info("facebook", "https://www.facebook.com/"));
+        profile.add(new Info("website", "https://google.com.vn"));
+        System.out.println("_______________________________________");
+        System.out.println(profile);
+        // Đưa thông tin vào Model
+        model.addAttribute("profile", profile);
+
+        // TRả về template profile.html
+        return "profile";
     }
 }
