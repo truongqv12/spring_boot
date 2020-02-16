@@ -39,14 +39,8 @@
         <div class="card" style="width: 60rem; margin-top: 50px">
             <img class="card-img-top" src="http://home.vnptnet.vn/media/vnpt/2018/01/05/VNPT.jpg" alt="Card image cap" style="width: 100px; height: 100px">
             <div class="card-body">
-                <h4 class="card-title">Thông tin</h4>
-                <ul>
-                    <li th:each="info : ${profile}">
-
-                        <span th:text="*{info.key}"></span> :  <span th:text="*{info.value}"></span>
-
-                    </li>
-                </ul>
+                <h4 class="card-title">Thêm thành công</h4>
+                <a th:href="@{/listTodo}" class="btn btn-primary"> Xem danh sách công việc</a>
             </div>
         </div>
     </div>

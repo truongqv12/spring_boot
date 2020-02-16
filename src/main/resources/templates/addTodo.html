@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
 
 </head>
@@ -39,14 +40,18 @@
         <div class="card" style="width: 60rem; margin-top: 50px">
             <img class="card-img-top" src="http://home.vnptnet.vn/media/vnpt/2018/01/05/VNPT.jpg" alt="Card image cap" style="width: 100px; height: 100px">
             <div class="card-body">
-                <h4 class="card-title">Thông tin</h4>
-                <ul>
-                    <li th:each="info : ${profile}">
-
-                        <span th:text="*{info.key}"></span> :  <span th:text="*{info.value}"></span>
-
-                    </li>
-                </ul>
+                <form th:action="@{/addTodo}" method="post" th:object="${todo}">
+                    <h3 th:utext="#{ngongu.hello}" class="form-title"></h3>
+                    <div class="form-group">
+                        <label>title</label>
+                        <input type="text" th:field="*{title}" class="form-control" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>detail</label>
+                        <input type="text" th:field="*{detail}" class="form-control" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Thêm</button>
+                </form>
             </div>
         </div>
     </div>
